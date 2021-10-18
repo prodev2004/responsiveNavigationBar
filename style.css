@@ -1,0 +1,159 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+    scroll-behavior: smooth;
+    scroll-padding-top: 10vh;
+}
+body {
+    overflow-x: hidden;
+}
+
+nav {
+    background-color: #fff;
+    box-shadow: 0 0 .5rem rgba(0, 0, 0, .3);
+    width: 100%;
+    min-height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0 0 2rem;
+
+    position: fixed;
+    top: 0;
+}
+h1 {
+    font-weight: 400;
+    line-height: .9;
+    text-align: center;
+}
+strong {
+    color: #ff0000;
+}
+
+.nav_links {
+    position: absolute;
+    top: 10vh;
+    right: 0;
+    box-shadow: 0 .5rem .5rem rgba(0, 0, 0, .3);
+    background-color: #fff;
+    width: 50%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    
+    transform: translateX(100%);
+    transition: 200ms ease-in-out transform;
+}
+.nav_links a {
+    font-weight: 500;
+    padding: 1rem;
+    text-decoration: none;
+    color: #ff0000;
+    border-bottom: 1px solid #ff0000;
+    transition: 200ms ease-in-out color,
+                200ms ease-in-out background-color,
+                200ms ease-in-out padding;
+}
+.nav_links a:hover {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 1rem 1.5rem;
+}
+
+.hamburger {
+    position: relative;
+    cursor: pointer;
+    height: 10vh;
+    width: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: 200ms ease-in-out background-color;
+}
+.hamburger:hover {
+    background-color: #ff0000;
+}
+.hamburger:hover .line {
+    background-color: #fff;
+}
+.line {
+    width: 30px;
+    height: 3px;
+    background-color: #ff0000;
+    margin: 3px 0;
+    transition: 200ms ease-in-out transform,
+                200ms ease-in-out opacity;
+}
+
+/* you can give it a different design. I'm just taking this as an example */
+/* check the other video in the desc to understand what this x does */
+.x .line-1 {
+    transform: translateY(300%) rotate(45deg);
+}
+.x .line-2 {
+    transform: translateX(100%);
+    opacity: 0;
+}
+.x .line-3 {
+    transform: translateY(-300%) rotate(-45deg);
+}
+
+.show_links {
+    transform: translateX(0);
+}
+
+/* now let's take care of the desktop mode */
+/* I think a media query around 800px is fine */
+
+@media only screen and (min-width: 800px) {
+    nav {
+        padding: 0;
+        justify-content: space-around;
+    }
+    .hamburger {
+        display: none;
+    }
+    .nav_links {
+        position: relative;
+        height: 10vh;
+        transform: translateX(0);
+        width: auto;
+        flex-direction: row;
+        top: 0;
+        box-shadow: none;
+    }
+    .nav_links a {
+        border: none;
+        align-self: center;
+    }
+    .nav_links a:hover {
+        padding: 1rem 1.5rem;
+    }
+}
+
+/* as I said before you can use your own design since this is just an example, even tho it doesn't look that bad */
+/* now I'll add some sections so we can test them */
+
+section {
+    width: 100%;
+    height: 90vh;
+    background-color: #fff000;
+    display: grid;
+    place-items: center;
+    z-index: -1;
+    position: relative;
+}
+section:nth-child(odd) {
+    background-color: #ff0000;
+}
+section:nth-of-type(1) {
+    margin-top: 10vh;
+}
+section h1 {
+    font-size: 4rem;
+}
